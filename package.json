@@ -4,6 +4,7 @@
   "description": "Api para guardar dados enviados pelo ESP32 e ser lido pela Alexa",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Igor Lisboa",
