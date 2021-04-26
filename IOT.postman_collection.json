@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "e7d21315-1dd9-4dd8-b887-6479b2109318",
+		"name": "IOT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL_IOT}}/info",
+							"host": [
+								"{{API_URL_IOT}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SET",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teste\": \"123\",\r\n    \"xxx\": \"sei la\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL_IOT}}/info",
+							"host": [
+								"{{API_URL_IOT}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
