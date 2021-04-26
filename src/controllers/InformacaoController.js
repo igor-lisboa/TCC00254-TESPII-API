@@ -1,9 +1,10 @@
+const { client, getByKey } = require("../db/redis");
 module.exports = {
-    recupera(req, res) {
+    async recupera(req, res) {
         try {
             return res.json({
-                message: "",
-                data: [],
+                message: "Informações recuperadas com sucesso!",
+                data: JSON.parse(await getByKey("informacoes")),
                 success: true
             });
         } catch (e) {
@@ -16,9 +17,12 @@ module.exports = {
         }
     }, atualiza(req, res) {
         try {
+            // inclui campo atualizado em
+            req.body.atualizadoEm = new Date().getTime();
+            client.set("informacoes", JSON.stringify(req.body));
             return res.json({
-                message: "",
-                data: [],
+                message: "Informações atualizadas com sucesso!",
+                data: req.body,
                 success: true
             });
         } catch (e) {
