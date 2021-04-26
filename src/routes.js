@@ -11,8 +11,7 @@ routes.get("/", (req, res) => {
             grupo: [
                 "Igor Lisbôa",
                 "Caio Wey"
-            ].sort(),
-            documentacao: "https://documenter.getpostman.com/view/15046943/TzJrByfx"
+            ].sort()
         },
         success: true
     });
