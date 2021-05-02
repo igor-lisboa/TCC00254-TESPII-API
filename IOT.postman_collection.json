@@ -49,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"itens\": [\r\n        {\r\n            \"temperature\": {\r\n                \"value\": \"16ºC\",\r\n                \"textToAlexa\": \"A temperatura do quarto está em ${value}!\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"itens\": [\r\n        {\r\n            \"name\": \"temperatura\",\r\n            \"value\": \"16ºC\",\r\n            \"textToAlexa\": \"A temperatura do quarto está em ${value}!\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
