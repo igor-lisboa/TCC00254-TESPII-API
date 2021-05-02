@@ -19,5 +19,6 @@ routes.get("/", (req, res) => {
 
 routes.get("/info", InformacaoController.recupera);
 routes.post("/info", InformacaoController.atualiza);
+routes.get('/saudacao', InformacaoController.saudacao)
 
 module.exports = routes;

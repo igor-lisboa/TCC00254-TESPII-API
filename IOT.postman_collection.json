@@ -26,13 +26,30 @@
 					"response": []
 				},
 				{
+					"name": "SAUDACAO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL_IOT}}/saudacao",
+							"host": [
+								"{{API_URL_IOT}}"
+							],
+							"path": [
+								"saudacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "SET",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"teste\": \"123\",\r\n    \"xxx\": \"sei la\"\r\n}",
+							"raw": "{\r\n    \"itens\": [\r\n        {\r\n            \"temperature\": {\r\n                \"value\": \"16ºC\",\r\n                \"textToAlexa\": \"A temperatura do quarto está em ${value}!\"\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
