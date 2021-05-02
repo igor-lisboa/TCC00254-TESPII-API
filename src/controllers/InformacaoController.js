@@ -58,9 +58,9 @@ module.exports = {
 
             let saudacao = "";
 
-            if (horas >= "06" && horas <= "12") {
+            if (horas >= 6 && horas <= 12) {
                 saudacao = "Bom dia!";
-            } else if (horas > "12" && horas < "18") {
+            } else if (horas > 12 && horas < 18) {
                 saudacao = "Boa tarde!";
             } else {
                 saudacao = "Boa noite!";
