@@ -74,8 +74,7 @@ module.exports = {
             return res.json({
                 message: "Saudação recuperada com sucesso!",
                 data: {
-                    saudacao,
-                    horas
+                    saudacao
                 },
                 success: true
             });
