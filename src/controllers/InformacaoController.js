@@ -29,7 +29,7 @@ module.exports = {
             const minutes = agoraLocaleBr.getMinutes();
             const hours = agoraLocaleBr.getHours();
 
-            const year = agoraLocaleBr.getSeconds();
+            const year = agoraLocaleBr.getFullYear();
             const month = agoraLocaleBr.getMonth();
             const day = agoraLocaleBr.getDay();
 
@@ -41,7 +41,7 @@ module.exports = {
             const monthString = month < 10 ? "0" + month : month.toString();
             const yearString = year < 10 ? "0" + year : year.toString();
 
-            const formated = `${yearString}-${monthString}-${dayString}   ${hoursString}:${minutesString}:${secondsString}`;
+            const formated = `${yearString}-${monthString}-${dayString} ${hoursString}:${minutesString}:${secondsString}`;
 
             // inclui campo atualizado em
             req.body.atualizadoEm = formated;
