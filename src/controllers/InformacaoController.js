@@ -25,7 +25,6 @@ module.exports = {
             const agoraLocaleBr = new Date(agora - (oneHourInMiliseconds * brazilDiffToUtc));
 
 
-            const seconds = agoraLocaleBr.getSeconds();
             const minutes = agoraLocaleBr.getMinutes();
             const hours = agoraLocaleBr.getHours();
 
@@ -35,13 +34,12 @@ module.exports = {
 
             const hoursString = hours < 10 ? "0" + hours : hours.toString();
             const minutesString = minutes < 10 ? "0" + minutes : minutes.toString();
-            const secondsString = seconds < 10 ? "0" + seconds : seconds.toString();
 
             const dayString = day < 10 ? "0" + day : day.toString();
             const monthString = month < 10 ? "0" + month : month.toString();
             const yearString = year < 10 ? "0" + year : year.toString();
 
-            const formated = `${yearString}-${monthString}-${dayString} ${hoursString}:${minutesString}:${secondsString}`;
+            const formated = `${yearString}-${monthString}-${dayString} ${hoursString}:${minutesString}`;
 
             // inclui campo atualizado em
             req.body.atualizadoEm = formated;
