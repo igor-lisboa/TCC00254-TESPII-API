@@ -22,16 +22,26 @@ module.exports = {
             const oneHourInMiliseconds = 3600000;
             const brazilDiffToUtc = 3;
 
-            const duration = agora - (oneHourInMiliseconds * brazilDiffToUtc);
+            const agoraLocaleBr = new Date(agora - (oneHourInMiliseconds * brazilDiffToUtc));
 
-            const seconds = Math.floor((duration / 1000) % 60);
-            const minutes = Math.floor((duration / (1000 * 60)) % 60);
-            const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+            const seconds = agoraLocaleBr.getSeconds();
+            const minutes = agoraLocaleBr.getMinutes();
+            const hours = agoraLocaleBr.getHours();
+
+            const year = agoraLocaleBr.getSeconds();
+            const month = agoraLocaleBr.getMonth();
+            const day = agoraLocaleBr.getDay();
 
             const hoursString = hours < 10 ? "0" + hours : hours.toString();
             const minutesString = minutes < 10 ? "0" + minutes : minutes.toString();
             const secondsString = seconds < 10 ? "0" + seconds : seconds.toString();
-            const formated = `${hoursString}:${minutesString}:${secondsString}`;
+
+            const dayString = day < 10 ? "0" + day : day.toString();
+            const monthString = month < 10 ? "0" + month : month.toString();
+            const yearString = year < 10 ? "0" + year : year.toString();
+
+            const formated = `${yearString}-${monthString}-${dayString}   ${hoursString}:${minutesString}:${secondsString}`;
 
             // inclui campo atualizado em
             req.body.atualizadoEm = formated;
