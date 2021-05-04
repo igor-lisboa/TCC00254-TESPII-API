@@ -31,7 +31,7 @@ module.exports = {
 
             const year = agoraLocaleBr.getFullYear();
             const month = agoraLocaleBr.getMonth();
-            const day = agoraLocaleBr.getDay();
+            const day = agoraLocaleBr.getDate();
 
             const hoursString = hours < 10 ? "0" + hours : hours.toString();
             const minutesString = minutes < 10 ? "0" + minutes : minutes.toString();
