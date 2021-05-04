@@ -18,25 +18,23 @@ module.exports = {
     }, async atualiza(req, res) {
         try {
             const infoAnterior = JSON.parse(await getByKey("informacoes"));
-            const agora = new Date();
-            const horas = agora.getUTCHours() - 3;
+            const agora = new Date().getTime();
+            const oneHourInMiliseconds = 3600000;
+            const brazilDiffToUtc = 3;
+
+            const duration = agora - (oneHourInMiliseconds * brazilDiffToUtc);
+
+            const seconds = Math.floor((duration / 1000) % 60);
+            const minutes = Math.floor((duration / (1000 * 60)) % 60);
+            const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+            const hoursString = hours < 10 ? "0" + hours : hours.toString();
+            const minutesString = minutes < 10 ? "0" + minutes : minutes.toString();
+            const secondsString = seconds < 10 ? "0" + seconds : seconds.toString();
+            const formated = `${hoursString}:${minutesString}:${secondsString}`;
+
             // inclui campo atualizado em
-            req.body.atualizadoEm = `${agora.getUTCFullYear()}-${agora.getUTCMonth().toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}-${agora.getUTCDate().toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })} ${horas.toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}:${agora.getUTCMinutes().toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}:${agora.getUTCSeconds().toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })}`;
+            req.body.atualizadoEm = formated;
             client.set("informacoes", JSON.stringify(req.body));
             return res.json({
                 message: "Informações atualizadas com sucesso!",
