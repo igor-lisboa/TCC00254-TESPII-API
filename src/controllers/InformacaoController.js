@@ -39,7 +39,7 @@ module.exports = {
             const monthString = month < 10 ? "0" + month : month.toString();
             const yearString = year < 10 ? "0" + year : year.toString();
 
-            const formated = `${yearString}-${monthString}-${dayString} ${hoursString}:${minutesString}`;
+            const formated = `${yearString}-${monthString}-${dayString} ${hoursString} horas e ${minutesString} minutos`;
 
             // inclui campo atualizado em
             req.body.atualizadoEm = formated;
