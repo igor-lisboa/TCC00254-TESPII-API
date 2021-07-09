@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+    nodejs:
+        build: .
+        container_name: iot_api_nodejs
+        depends_on:
+            - redisdb
+        ports:
+            - 3334:3334
+        environment:
+            - PORT=3334
+            - REDIS_URL=redis://iot_api_redisdb:6379
+    redisdb:
+        image: redis:6.2
+        container_name: iot_api_redisdb
+        restart: always
